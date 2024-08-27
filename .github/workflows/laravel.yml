@@ -69,4 +69,4 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         chmod 700 ~/.ssh
-        ssh -o StrictHostKeyChecking=no myuser@6.tcp.eu.ngrok.io -p 14475 "cd ../../../laravel-ci-cd && git pull origin master && php artisan migrate --force"
+        ssh -o StrictHostKeyChecking=no user@6.tcp.eu.ngrok.io -p 14475 "cd ../../../laravel-ci-cd && git pull origin master && php artisan migrate --force"
