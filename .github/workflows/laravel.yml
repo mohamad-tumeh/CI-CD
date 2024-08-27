@@ -60,10 +60,13 @@ jobs:
 
     steps:
     - name: Deploy to Server
+      steps:
+    - name: Deploy to Server
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa 
-        ssh -o StrictHostKeyChecking=no mhamadtumeh123123@gmail.com "cd ../../../laravel-ci-cd && git pull origin master && php artisan migrate --force"
+        chmod 600 ~/.ssh/id_rsa
+        chmod 700 ~/.ssh
+        ssh -o StrictHostKeyChecking=no myuser@6.tcp.eu.ngrok.io -p 14475 "cd ../../../laravel-ci-cd && git pull origin master && php artisan migrate --force"
