@@ -59,14 +59,14 @@ jobs:
     needs: laravel-tests
 
     steps:
-    - name: Deploy to Server
-      steps:
-    - name: Deploy to Server
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        chmod 700 ~/.ssh
-        ssh -o StrictHostKeyChecking=no user@6.tcp.eu.ngrok.io -p 14475 "cd ../../../laravel-ci-cd && git pull origin master && php artisan migrate --force"
+
+    - name: Deploy to Server
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        ssh -o StrictHostKeyChecking=no myuser@6.tcp.eu.ngrok.io -p 14475 "git pull origin master && php artisan migrate --force"
