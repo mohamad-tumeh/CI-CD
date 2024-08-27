@@ -66,4 +66,4 @@ jobs:
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh -o StrictHostKeyChecking=no mhamadtumeh123123@gmail.com.com "cd ../../../laravel-ci-cd && git pull origin master && php artisan migrate --force"
+        ssh -o StrictHostKeyChecking=no mhamadtumeh123123@gmail.com "cd ../../../laravel-ci-cd && git pull origin master && php artisan migrate --force"
