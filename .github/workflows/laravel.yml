@@ -69,4 +69,4 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
-        ssh -o StrictHostKeyChecking=no myuser@6.tcp.eu.ngrok.io -p 14475 "git pull origin master && php artisan migrate --force"
+        ssh -o StrictHostKeyChecking=no myuser@6.tcp.eu.ngrok.io -p 13886 "git pull origin master && php artisan migrate --force"
